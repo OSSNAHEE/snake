@@ -39,7 +39,6 @@ void Snake_Move()
 {
 	Snake p, tmp;
 	
-
 	for(p = tail; p != head; p = p->prev) {
 		p->x = p->prev->x;
 		p->y = p->prev->y;

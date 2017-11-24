@@ -24,11 +24,20 @@ FOOD food;
 
 void drawMap()
 {
+	start_color();
+	init_pair(0, COLOR_BLACK,COLOR_BLACK);
 	for(int x=0; x<WIDTH; x+=2) {
 		for(int y=0; y<HEIGHT; y++) {
 			if(x==0 || y==0 || x==WIDTH-2 || y==HEIGHT-1){
 				move(y,x);
 				addch('@');
+			}
+			else
+			{
+				move(y,x);
+				attron(0);
+				addch(' ');
+				attroff(0);
 			}
 		}
 	} //need obstacle
@@ -61,10 +70,16 @@ void drawSnake(Snake p)
 
 void eraseSnake(Snake p)
 {
-	for(; p!=NULL; p=p->next) {
+	start_color();
+	
+	for(; p!=tail; p=p->next) {
 		move(p->y,p->x);
+		attron(0);
 		addch(' ');
+		attroff(0);
 	}
+	move(p->y, p->x);
+	addch(' ');
 	refresh();
 }
 

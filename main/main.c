@@ -26,7 +26,8 @@
 int main()
 {
 	char ch;
-
+	
+	clear();
 	Init();
 	signal(SIGALRM, sig_alrm);
 	set_ticker(100);
