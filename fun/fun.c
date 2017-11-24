@@ -38,7 +38,7 @@ int set_ticker(int n_msec)
 void Snake_Move()
 {
 	Snake p, tmp;
-
+	
 
 	for(p = tail; p != head; p = p->prev) {
 		p->x = p->prev->x;
@@ -152,7 +152,7 @@ void Init()
 
 	drawMap();
 
-	dir_x = 1;
+	dir_x = 2;
 	dir_y = 0;
 	head = (Snake)malloc(sizeof(SNAKE));
 	head->x = rand() % (WIDTH/2-2)*2 + 2;

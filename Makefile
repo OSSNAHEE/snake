@@ -3,7 +3,7 @@ SUBDIRS	:= main fun draw
 OBJS	:= main/built-in.o fun/built-in.o draw/built-in.o
 
 all: compile $(OBJS)
-	$(CC) $(OBJS) -o $(TARGET) -lcurses
+	$(CC) $(OBJS) -g -o $(TARGET) -lcurses
 
 compile:
 	@for dir in $(SUBDIRS); do \
