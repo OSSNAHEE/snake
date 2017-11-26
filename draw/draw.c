@@ -37,9 +37,24 @@ void drawMap()
 
 void drawSnake(Snake p)
 {
+	start_color();			/* Start color*/
+	init_pair(1, COLOR_RED, COLOR_BLACK);
+        init_pair(2, COLOR_GREEN, COLOR_BLACK);
+	
 	for(; p!=tail; p=p->next) {
 		move(p->y,p->x);
-		addch('*');
+		if(p==head)
+		{
+			attron(COLOR_PAIR(1));
+			addch('*');
+			attroff(COLOR_PAIR(1));
+		}
+		else
+		{
+			attron(COLOR_PAIR(2));
+			addch('*');
+			attroff(COLOR_PAIR(2));
+		}
 	}
 	refresh();
 }
